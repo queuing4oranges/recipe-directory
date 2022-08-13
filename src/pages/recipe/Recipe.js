@@ -13,9 +13,16 @@ export default function Recipe() {
     <div className='recipe'>
       {error && <div className='error'>{error}</div>}
       {isPending && <div className='loading'>Waiting...</div>}
-      {recipe && <h1>{recipe.title}</h1>}                        
+      {recipe && 
+      <>
+      <h2 className='page-title'>{recipe.title}</h2>
+      <p>Takes {recipe.cookingTime} to cook.</p>
+      <ul>{recipe.ingredients.map(ingredient => (<li key={ingredient}>{ingredient}</li>))}</ul> 
+      <p>Method: {recipe.method}</p>
+      </>    
+      }                        
     </div>
 
   )
 }
-//doesnt need map fct since it's just ONE recipe!
+//logically -> map isnt used with one id!!
